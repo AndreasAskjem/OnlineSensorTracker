@@ -13,6 +13,7 @@ namespace OnlineSensorTracker.Core.ApplicationService
             _modelRepository = modelRepository;
         }
 
+        /*
         public async Task<SensorModel> SendToDb(SensorModel submission)
         {
             //var submission = new SensorModel();
@@ -20,6 +21,7 @@ namespace OnlineSensorTracker.Core.ApplicationService
             return submission;
 
         }
+        */
 
         public async Task<IEnumerable<SensorModel>> ReadDb()
         {

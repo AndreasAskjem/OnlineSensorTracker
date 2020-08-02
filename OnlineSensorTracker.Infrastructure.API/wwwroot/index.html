@@ -52,6 +52,17 @@
             console.log(tableModel);
             show();
         }
+
+        async function postData(value) {
+            let response = JSON.stringify({ Value: value });
+            const headers = { 'Content-Type': 'application/json' }
+            await axios.post("https://localhost:44378/db", response, { headers: headers })
+                .then(response => {
+                    console.log("Attempted send");
+                    console.log(response.Value);
+                })
+                .catch(error => console.error(error));
+        }
     </script>
 </body>
 </html>

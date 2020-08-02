@@ -38,7 +38,9 @@ namespace OnlineSensorTracker
             //services.AddOpenApiDocument();
             services.AddScoped<ISensorModelRepository, SensorModelRepository>();
             services.AddScoped<DbService>();
-            services.AddScoped<SerialService>();
+            //services.AddScoped<ISensorSerialRepository, SerialListener>();
+            //services.AddScoped<SerialListener>();
+            //services.AddHostedService<SerialListener>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

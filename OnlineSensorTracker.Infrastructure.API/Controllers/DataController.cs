@@ -14,7 +14,7 @@ namespace OnlineSensorTracker.Controllers
     public class DataController : ControllerBase
     {
         private readonly DbService _dbService;
-        private readonly SerialService _serialService;
+        //private readonly SerialService _serialService;
         public DataController(DbService dbService/*, SerialService serialService*/)
         {
             _dbService = dbService;

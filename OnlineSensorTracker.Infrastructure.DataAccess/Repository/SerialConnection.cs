@@ -2,21 +2,23 @@
 using System.IO.Ports;
 using System.Management;
 
-namespace OnlineSensorTracker.Core.ApplicationService
+namespace OnlineSensorTracker.Infrastructure.DataAccess.Repository
 {
     internal class SerialConnection
     {
         public int Value { get; private set; } = 0;
         public void SerialReader()
         {
-            SerialPort port = new SerialPort();
-            port.PortName = GetArduinoPort();
-            port.BaudRate = 9600;
-            port.Parity = Parity.None;
-            port.DataBits = 8;
-            port.StopBits = StopBits.One;
-            port.Handshake = Handshake.None;
-            port.RtsEnable = true;
+            SerialPort port = new SerialPort
+            {
+                PortName = GetArduinoPort(),
+                BaudRate = 9600,
+                Parity = Parity.None,
+                DataBits = 8,
+                StopBits = StopBits.One,
+                Handshake = Handshake.None,
+                RtsEnable = true
+            };
 
             port.DataReceived += new SerialDataReceivedEventHandler(DataReceiver);
 

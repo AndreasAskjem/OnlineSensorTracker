@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.IO.Ports;
-using System.Management;
-using System.Threading;
+using System.Threading.Tasks;
+using OnlineSensorTracker.Core.DomainModel;
+using OnlineSensorTracker.Core.DomainServices;
 
 namespace OnlineSensorTracker.Core.ApplicationService
 {
-    public class SerialService
+    class SerialService
     {
-        //static SerialPort _serialPort;
-        public static SerialPort MakeConnection()
+        private readonly ISensorSerialRepository _serialRepository;
+        public SerialService(ISensorSerialRepository serialRepository)
         {
-            SerialConnection port = new SerialConnection();
-            Thread portThread = new Thread(new ThreadStart(port.SerialReader));
-            // This thread keeps port.Value constantly updated.
-            portThread.Start();
-            while (true)
-            {
-                Thread.Sleep(1000);
-                Console.WriteLine(port.Value);
-            }
+            _serialRepository = serialRepository;
+        }
+        public async Task<SensorModel> SendToDb(SensorModel submission)
+        {
+            //var submission = new SensorModel();
+            await _serialRepository.Create(submission);/////////////
+            return submission;
+
         }
     }
 }

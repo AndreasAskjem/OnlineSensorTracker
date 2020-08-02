@@ -1,4 +1,6 @@
-﻿namespace OnlineSensorTracker.Core.DomainModel
+﻿using System;
+
+namespace OnlineSensorTracker.Core.DomainModel
 {
     public class SensorModel
     {

@@ -9,8 +9,9 @@ namespace OnlineSensorTracker.Infrastructure.DataAccess.Model
         public int Id { get; set; }
         public int Value { get; set; }
 
-        public SensorModel()
+        public SensorModel(int value)
         {
+            Value = value;
         }
 
         public SensorModel(int id, int value)

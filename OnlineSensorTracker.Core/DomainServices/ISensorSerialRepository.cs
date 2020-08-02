@@ -5,10 +5,8 @@ using OnlineSensorTracker.Core.DomainModel;
 
 namespace OnlineSensorTracker.Core.DomainServices
 {
-    public interface ISensorModelRepository
+    public interface ISensorSerialRepository
     {
-        //Task<bool> Create(SensorModel submission);
-        Task<IEnumerable<SensorModel>> ReadAll();
-
+        Task<bool> Create(SensorModel submission);
     }
 }

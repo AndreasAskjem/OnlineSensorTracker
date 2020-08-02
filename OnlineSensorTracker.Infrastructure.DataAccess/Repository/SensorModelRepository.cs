@@ -60,6 +60,8 @@ namespace OnlineSensorTracker.Infrastructure.DataAccess.Repository
             return MapToDomain(result);
         }
 
+
+
         private static IEnumerable<SensorModel> MapToDomain(IEnumerable<DbSensorModel> dbSensorModel)
         {
             List<SensorModel> sensorModel = new List<SensorModel>();
